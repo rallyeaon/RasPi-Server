@@ -1,4 +1,8 @@
 #!/bin/sh
+#
+# download this script using the command:
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/setupPartition.sh
+#
 device="/dev/sdb"
 echo "This script will resize the partition of an already booted but not"
 echo "modified Raspberian which allocates the full M2"
