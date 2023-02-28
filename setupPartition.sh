@@ -21,7 +21,7 @@ parted -l
 RootFsSize=64
 RootSize=$RootFsSize
 if [ -z $ootFsSize ] ; then
-   read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter:" RootSize
+   read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter: " RootSize
    if [[ $RootSize != "" ]] ; then
       RootFsSize=$RootSize
    fi
