@@ -1,5 +1,5 @@
 #!/bin/sh
-# run this Script as root https://www.linuxjournal.com/content/automatically-re>
+# run this Script as root https://www.linuxjournal.com/content/automatically-re-start-script-root-0
 
 # function copied from raspi-config  -  it's updating /boot/config.txt
 set_config_var() {
@@ -33,16 +33,16 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 ### Start Script
-PACKAGE_LANG=(en_US.UTF-8 de_DE.UTF-8) # the first is fallback in LANGUAGE, the>
+PACKAGE_LANG=(en_US.UTF-8 de_DE.UTF-8) # the first is fallback in LANGUAGE, the last is set to default
 
 # first load the latest software
 apt -y update
 apt -y full-upgrade
 
 # config the default language, raspi-config is this doing in a similar way
-for lang in ${PACKAGE_LANG[*]}; do sed -i -e "s/# $lang/$lang/" /etc/locale.gen>
+for lang in ${PACKAGE_LANG[*]}; do sed -i -e "s/# $lang/$lang/" /etc/locale.gen; done 
 dpkg-reconfigure -f noninteractive locales     # ? locale-gen
-update-locale LANG=${PACKAGE_LANG[-1]} LANGUAGE=${PACKAGE_LANG[-1]:0:2}:${PACKA>
+update-locale LANG=${PACKAGE_LANG[-1]} LANGUAGE=${PACKAGE_LANG[-1]:0:2}:${PACKAGE_LANG[0]:0:2}
 
 # set GPU-Memory to 1GB as no GPU is needed in this RasPi
 if [ -e /boot/start_cd.elf ]; then
@@ -53,8 +53,9 @@ fi
 # as the RasPi doesn't have a system-clock let's install ntpdata
 apt -y install ntpdate
 
-# rpi-update shouldn't be part of regular maintenance but may be part when re-i>
+# rpi-update shouldn't be part of regular maintenance but may be part when re-installing a system
 rpi-update
 
 # Reboot
 echo "Ein reboot ist empfohlen!"
+
