@@ -56,6 +56,14 @@ fi
 # as the RasPi doesn't have a system-clock let's install ntpdata
 apt -y install ntpdate
 
+# backup /etc/fstab
+cp /etc/fstab /etc/fstab.ok
+
+# create directories used at a later point
+mkdir /mnt/M2Data
+mkdir /mnt/share
+mkdir /mnt/SonosSpeak
+
 # rpi-update shouldn't be part of regular maintenance but may be part when re-installing a system
 rpi-update
 
