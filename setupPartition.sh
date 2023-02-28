@@ -1,8 +1,4 @@
 #!/bin/sh
-#
-# download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/setupPartition.sh
-#
 device="/dev/sdb"
 echo "This script will resize the partition of an already booted but not"
 echo "modified Raspberian which allocates the full M2"
@@ -25,7 +21,7 @@ parted -l
 RootFsSize=64
 RootSize=$RootFsSize
 if [ -z $ootFsSize ] ; then
-   read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe ei>
+   read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter:" RootSize
    if [[ $RootSize != "" ]] ; then
       RootFsSize=$RootSize
    fi
@@ -36,20 +32,28 @@ else
    echo "Ungülitige (nicht-numerische) Eingabe"
    exit
 fi
+
 # check and repair rootfs-filesystem if necessarry
 e2fsck -fy "${device}2"
+
 # resize the rottfs-filesystem to the new size
 resize2fs "${device}2" "${RootFsSize}G"
+
 # resize the partition of rootfs
 parted $device resizepart 2 "${RootFsSize}G"
-# make sure the rootfs-filesystem is conuming all space available in the partit>
+
+# make sure the rootfs-filesystem is conuming all space available in the partition
 resize2fs "${device}2"
+
 # create a data-partition on the remaining space
 parted $device  mkpart primary ext4 "${RootFsSize}G" 100%
+
 # create an ext4 filesystem on the new partition
 mkfs.ext4 "${device}3"
+
 # create a disk-label  "M2Data"
 tune2fs -L M2Data "${device}3"
+
 # show the result of the work performed
 parted -l
 exit
