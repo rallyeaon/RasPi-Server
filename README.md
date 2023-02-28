@@ -8,4 +8,4 @@ Here are some short Scripts for setup a new raspberry und do some configuration 
 sudo sh <scriptname>
 Short description the Basic Script in sort of usage:
 
-Basic will setup all Basic things like latest software, GPU-memory, optional FW-update
+* Basic will setup all Basic things like latest software, GPU-memory, optional FW-update
