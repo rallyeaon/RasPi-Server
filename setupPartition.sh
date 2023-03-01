@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # download this script using the command:
 # wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/setupPartition.sh
