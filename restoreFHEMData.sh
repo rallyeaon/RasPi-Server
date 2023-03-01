@@ -1,5 +1,4 @@
 #!/bin/bash
-# run this Script as root https://www.linuxjournal.com/content/automatically-re-start-script-root-0
 #
 # download this script using the command:
 # wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/restoreFHEMData.sh
