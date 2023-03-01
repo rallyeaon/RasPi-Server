@@ -65,8 +65,24 @@ mkdir /mnt/share
 mkdir /mnt/SonosSpeak
 
 # rpi-update shouldn't be part of regular maintenance but may be part when re-installing a system
-rpi-update
+while true; do
+
+read -p "Update Raspberry firmware ? (y/N): " yn
+yn=${yn,,}
+if [[ $yn = "" ]] ; then
+   yn=n
+fi
+case $yn in 
+        [yn] ) break;;
+        * ) echo Unexpected input;;
+esac
+
+done
+
+if [[ "$yn" = "y" ]]; then
+   rpi-update;
+fi
 
 # Reboot
-echo "Ein reboot ist empfohlen!"
+echo "A reboot is strongly recommended"
 
