@@ -8,11 +8,10 @@
 # get all filenames of FHEM-Backups into the array
 # the filenames correspond to the nomenclature FHEM-<yyymmdd>_<hhmmss>.tar.gz
 #
-if [ $(id -u) -ne 0 ]; then
-   echo "$0 must run as 'root'"
-   echo "restarting with correct permissions"
-   sudo -p 'Restarting as root, password: ' bash $0 "$@"
-   exit $?
+if [ $(id -u) -eq 0 ]; then
+   echo "$0 must not run as 'root'"
+   echo "please restart with correct permissions"
+   exit
 fi
 #
 RecoveryPath=/opt/fhemdocker
@@ -33,13 +32,13 @@ echo "most recent backup is named"
 echo $BackupPath/$most_recent
 
 # retrieve a local copy of the most recent FHEM-Backup
-#rsync -auv --owner --numeric-ids --group --super josef@192.168.57.32:$BackupPath/$most_recent /home/josef/
+rsync -auv --owner --numeric-ids --group --super josef@192.168.57.32:$BackupPath/$most_recent /home/josef/
 
 # untar the FHEMBackup 
 if [ ! -d "$RecoveryPath" ]; then
-   mkdir $RecoveryPath
+   sudo mkdir $RecoveryPath
 fi
-tar -xvzf /home/josef/$most_recent -C ${RecoveryPath}/
+sudo tar -xvzf /home/josef/$most_recent -C ${RecoveryPath}/
 
 
 printf "%s\n" "${lines[@]}"
