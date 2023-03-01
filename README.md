@@ -13,4 +13,5 @@ Short description the Basic Script in sort of usage:
 
 * Partitions will shrink the expanded rootfs to a user-defined size and create an ext4-partition named M2Data on the available space 
 * Basic will setup all Basic things like software-update, GPU-memory, optional FW-update
+* Samba will install samba and create smbusers for myself and cruella
 * FHEMData will restore the most recent backup from remote backupsystem
