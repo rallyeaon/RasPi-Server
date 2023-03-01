@@ -23,12 +23,9 @@ parted -l
 
 # determine size of root-partition. Default is 64G
 RootFsSize=64
-RootSize=$RootFsSize
-if [ -z $ootFsSize ] ; then
-   read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter: " RootSize
-   if [[ $RootSize != "" ]] ; then
-      RootFsSize=$RootSize
-   fi
+read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter: " RootSize
+if [[ $RootSize != "" ]] ; then
+   RootFsSize=$RootSize
 fi
 if echo $RootFsSize | egrep -q "^-?[0-9]+$"; then 
    echo "Systempartition wird auf ${RootFsSize}G gesetzt"
