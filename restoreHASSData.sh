@@ -30,7 +30,7 @@ done
 echo "most recent backup is named"
 echo $BackupPath/$most_recent
 
-# retrieve a local copy of the most recent FHEM-Backup
+# retrieve a local copy of the most recent Home Assistant-Backup
 rsync -auv --owner --numeric-ids --group --super josef@192.168.57.32:$BackupPath/$most_recent /home/josef/
 
 # untar the HomeAssistantBackup 
