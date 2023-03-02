@@ -16,7 +16,7 @@ fi
 RecoveryPath=/opt/mosquitto
 BackupPath=/mnt/BackupDevice/RasPi-Server/opt/mosquitto/backup
 
-numbers=( $(ssh josef@192.168.57.32 ls $BackupPath | grep .tar.gz) )
+numbers=( $(ssh josef@RasPi-Backup ls $BackupPath | grep .tar.gz) )
 
 # initialize most_recent with first entry in array
 most_recent=${numbers[0]}
@@ -31,7 +31,7 @@ echo "most recent backup is named"
 echo $BackupPath/$most_recent
 
 # retrieve a local copy of the most recent mosquitto-conf-Backup
-rsync -auv --owner --numeric-ids --group --super josef@192.168.57.32:$BackupPath/$most_recent /home/josef/
+rsync -auv --owner --numeric-ids --group --super josef@RasPi-Backup:$BackupPath/$most_recent /home/josef/
 
 # untar the mosquitto-configBackup 
 if [ ! -d "$RecoveryPath" ]; then
