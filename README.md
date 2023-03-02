@@ -14,4 +14,5 @@ Short description the Basic Script in sort of usage:
 * setupPartitions will shrink the expanded rootfs to a user-defined size and create an ext4-partition named M2Data on the available space 
 * setupBasic will setup all Basic things like software-update, GPU-memory, optional FW-update
 * setupSamba will install samba and create smbusers for myself and cruella
-* restoreFHEMData will restore the most recent backup from remote backupsystem
+* restoreFHEMData will restore the most recent FHEM configuration-backup from remote backupsystem
+* restoreHASSData will restore the most recent Home Assistant configuration-backup from remote backupsystem
