@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/restoreFHEMData.sh
+# wget https://github.com/rallyeaon/RasPi-Server/blob/main/restoreFHEMData.sh
 #
 #
 # get all filenames of FHEM-Backups into the array
