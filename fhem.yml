@@ -1,4 +1,4 @@
-# this is the portainer portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+# this is the fhem portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
 #
 # alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
 # (re)start docker using command 'docker compose up -d'
