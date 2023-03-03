@@ -25,4 +25,4 @@ sudo sh get-docker.sh
 sudo usermod -aG docker $USER
 
 # display installed version of docker
-docker —version
+docker -v
