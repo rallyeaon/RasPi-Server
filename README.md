@@ -20,3 +20,5 @@ Short description the Basic Script in sort of usage:
 * installDocker install the docker-software on our machine and add the current user to group docker
 * portainer.yml holds the initial portainer configuration for portainer only
 * fhem.yml holds configuration for FHEM docker
+* mosquitto.yml holds configuration for mosquitto docker which is needed for communication FHEM <-> Home Assistant
+* HASS.yml holds configuration for Home Assistant docker
