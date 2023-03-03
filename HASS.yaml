@@ -1,0 +1,20 @@
+# this is the Home Assistant portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+#
+# alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
+# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/HASS.yml
+#
+version: '3'
+services:
+
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /opt/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+#
