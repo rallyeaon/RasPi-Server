@@ -1,4 +1,7 @@
 # this is the portainer portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+# prior first start make sure the docker volume 'portainer_data' is available. Otherwise you will end up with an error message.
+# Creade the volume using command 'sudo docker volume create portainer_data'
+#
 # having downloaded this file docker will be started using command 'docker compose up -d'
 # 
 # The web-Interface will be reachable on RasPi-Server:9443 At initial start a saved portainer-configuration may be imported
