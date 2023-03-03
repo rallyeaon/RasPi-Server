@@ -1,0 +1,21 @@
+# this is the mosquitto portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+#
+# alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
+# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/mosquitto.yml
+#
+version: '3'
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: unless-stopped
+    volumes:
+      - /opt/mosquitto:/mosquitto
+      - /opt/mosquitto/data:/mosquitto/data
+      - /opt/mosquitto/log:/mosquitto/log
+    ports:
+      - 1885:1885
+      - 9001:9001
