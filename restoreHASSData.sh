@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/restoreHASSData.sh
+# wget https://github.com/rallyeaon/RasPi-Server/blob/main/restoreHASSData.sh
 #
 #
 # get all filenames of HomeAssistant-Backups into the array
