@@ -22,3 +22,4 @@ Short description the Basic Script in sort of usage:
 * fhem.yml holds configuration for FHEM docker
 * mosquitto.yml holds configuration for mosquitto docker which is needed for communication FHEM <-> Home Assistant
 * HASS.yml holds configuration for Home Assistant docker
+* minidlna.yml holds configuration for minidlna docker
