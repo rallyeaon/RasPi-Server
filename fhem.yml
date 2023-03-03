@@ -1,0 +1,29 @@
+# this is the portainer portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+#
+# alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
+# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/fhem.yml
+#
+version: '3'
+services:
+
+  fhem:
+    image: ghcr.io/fhem/fhem/fhem-docker:latest
+    container_name: fhem
+    hostname: fhem
+    restart: always
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8085:8085"
+      - "7072:7072"
+    volumes:
+      - /opt/fhemdocker/:/opt/fhem/
+    environment:
+      FHEM_UID: 999
+      FHEM_GID: 20
+      TZ: Europe/Vienna
+#
