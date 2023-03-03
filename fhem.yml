@@ -3,7 +3,7 @@
 # alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
 # (re)start docker using command 'docker compose up -d'
 #
-# download this file using command wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/fhem.yml
+# download this file using command wget https://github.com/rallyeaon/RasPi-Server/blob/main/fhem.yml
 #
 version: '3'
 services:
