@@ -27,4 +27,6 @@ Short description the Basic Script in sort of usage:
 #### Setup system, install and customize Samba to my needs
 `wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh,Docker.sh}`
 #### Restore data & configurations from backup-system
-`wget https://github.com/rallyeaon/RasPi-Server/blob/main/restore{FHEMData.sh,HASSData.sh,MQConfig}`
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/restore{FHEMData.sh,HASSData.sh,MQConfig.sh}`
+#### Receive docker compose content
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/{portainer.yml,fhem.yml.sh,mosquitto.yml,minidlna.yml}`
