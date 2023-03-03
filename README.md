@@ -24,5 +24,5 @@ Short description the Basic Script in sort of usage:
 * HASS.yml holds configuration for Home Assistant docker
 * minidlna.yml holds configuration for minidlna docker
 # Download set of scripts
-## Setuo system, install and customize Samba to my needs
+#### Setup system, install and customize Samba to my needs
 wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}
