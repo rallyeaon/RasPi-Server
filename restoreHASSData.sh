@@ -13,13 +13,19 @@ if [ $(id -u) -eq 0 ]; then
    exit
 fi
 #
+Remote=josef@RasPi-Backup
 RecoveryPath=/opt/homeassistant
-BackupPath=/mnt/BackupDevice/RasPi-Server/opt/homeassistant/backup
+RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath/backup
 
-numbers=( $(ssh josef@RasPi-Backup ls $BackupPath | grep .tar.gz) )
+numbers=( $(ssh $Remote ls $RemotePath | grep .tar.gz) )
 
 # initialize most_recent with first entry in array
 most_recent=${numbers[0]}
+#
+if [[ "$most_recent" != HA-*.tar.gz ]]; then
+   echo "No Home Assistant-backup found on $Remote:$RemotePath"
+   exit
+fi
 
 # walk thru the array to find the youngest/most recent backup
 for (( i=0; i<${#numbers[@]}; i++ )); do
@@ -28,16 +34,18 @@ for (( i=0; i<${#numbers[@]}; i++ )); do
     fi
 done
 echo "most recent backup is named"
-echo $BackupPath/$most_recent
+echo $RemotePath/$most_recent
 
 # retrieve a local copy of the most recent Home Assistant-Backup
-rsync -auv --owner --numeric-ids --group --super josef@RasPi-Backup:$BackupPath/$most_recent /home/josef/
+rsync -auv --owner --numeric-ids --group --super $Remote:$RemotePath/$most_recent .
 
 # untar the HomeAssistantBackup 
 if [ ! -d "$RecoveryPath" ]; then
    sudo mkdir $RecoveryPath
 fi
-sudo tar -xvzf /home/josef/$most_recent -C /
+sudo tar -xvzf $most_recent -C /
 
-printf "%s\n" "${lines[@]}"
+# clean-up disk
+rm $most_recent
 
+exit
