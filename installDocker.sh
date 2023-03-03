@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/installDocker.sh
+# wget https://github.com/rallyeaon/RasPi-Server/blob/main/installDocker.sh
 #
 #
 #
