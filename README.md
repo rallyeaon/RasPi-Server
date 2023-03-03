@@ -25,4 +25,6 @@ Short description the Basic Script in sort of usage:
 * minidlna.yml holds configuration for minidlna docker
 # Download set of scripts
 #### Setup system, install and customize Samba to my needs
-wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}`
+#### Setup system, install and customize Samba to my needs
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}`
