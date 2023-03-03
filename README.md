@@ -17,7 +17,7 @@ Short description the Basic Script in sort of usage:
 * restoreFHEMData will restore FHEM's most recent configuration-backup from remote backupsystem and restore it to /opt/fhemdocker. If no backup can be found a warning will be displayed.
 * restoreHASSData will restore Home Assistant's most recent configuration-backup from remote backupsystem and restore it to /opt/homeassistant. If no backup can be found a warning will be displayed.
 * restoreMQConfig will restore mosquitto's most recent configuration-backup from remote backupsystem and restore it to /opt/mosquitto. If no backup can be found a warning will be displayed.
-* installDocker install the docker-software on our machine and add the current user to group docker
+* setupDocker install the docker-software on our machine and add the current user to group docker
 * portainer.yml holds the initial portainer configuration for portainer only
 * fhem.yml holds configuration for FHEM docker
 * mosquitto.yml holds configuration for mosquitto docker which is needed for communication FHEM <-> Home Assistant
@@ -25,6 +25,6 @@ Short description the Basic Script in sort of usage:
 * minidlna.yml holds configuration for minidlna docker
 # Download set of scripts
 #### Setup system, install and customize Samba to my needs
-`wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}`
-#### Setup system, install and customize Samba to my needs
-`wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh}`
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/setup{Basic.sh,Samba.sh,Docker.sh}`
+#### Restore data & configurations from backup-system
+`wget https://github.com/rallyeaon/RasPi-Server/blob/main/restore{FHEMData.sh,HASSData.sh,MQConfig}`
