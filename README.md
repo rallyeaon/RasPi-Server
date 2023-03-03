@@ -17,3 +17,4 @@ Short description the Basic Script in sort of usage:
 * restoreFHEMData will restore FHEM's most recent configuration-backup from remote backupsystem and restore it to /opt/fhemdocker
 * restoreHASSData will restore Home Assistant's most recent configuration-backup from remote backupsystem and restore it to /opt/homeassistant
 * restoreMQConfig will restore mosquitto's most recent configuration-backup from remote backupsystem and restore it to /opt/mosquitto
+* installDocker install the docker-software on our machine and add the current user to group docker
