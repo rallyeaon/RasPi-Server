@@ -18,3 +18,4 @@ Short description the Basic Script in sort of usage:
 * restoreHASSData will restore Home Assistant's most recent configuration-backup from remote backupsystem and restore it to /opt/homeassistant. If no backup can be found a warning will be displayed.
 * restoreMQConfig will restore mosquitto's most recent configuration-backup from remote backupsystem and restore it to /opt/mosquitto. If no backup can be found a warning will be displayed.
 * installDocker install the docker-software on our machine and add the current user to group docker
+* portainer.yml holds the initial portainer configuration for portainer only
