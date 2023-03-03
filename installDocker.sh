@@ -1,5 +1,5 @@
 #!/bin/bash
-#raspbee_gateway_config_2023-01-23.dat
+#
 # download this script using the command:
 # wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/master/installDocker.sh
 #
