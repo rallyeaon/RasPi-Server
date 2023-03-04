@@ -2,7 +2,7 @@
 # run this Script as root https://www.linuxjournal.com/content/automatically-re-start-script-root-0
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/blob/main/setupBasic.sh
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/setupBasic.sh
 #
 # function copied from raspi-config  -  it's updating /boot/config.txt
 set_config_var() {
