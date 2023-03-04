@@ -8,7 +8,8 @@
 # from a backup-file portainer-backup_<yyyy>-<mm>-<dd>_<hh>-<mm>-<ss>.tar.gz which is located in directory "Downloads" of my Mac Mini M1
 # Alternatively a new configuration using new userID & password can be created
 #
-# download this file using command wget https://github.com/rallyeaon/RasPi-Server/blob/main/portainer.yml
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/portainer.yml
 #
 version: '3'
 services:
