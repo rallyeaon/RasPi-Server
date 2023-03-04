@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/blob/main/setupPartition.sh
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/setupPartition.sh
 #
 device="/dev/sdb"
 echo "This script will resize the partition of an already booted but not"
