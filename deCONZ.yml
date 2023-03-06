@@ -1,6 +1,6 @@
-# this is the deCONZ portion of compose.yaml and should be downloaded first into /opt and renamed to compose.yaml
+# this is a compose.yaml-file to run deCONZ stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
 #
-# alternatively the lines below the keyword "services" will be copied into an existing /opt/compose.yml
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add deCONZ to the environment
 # (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
