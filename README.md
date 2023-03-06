@@ -19,8 +19,9 @@ Short description the Basic Script in sort of usage:
 * restoreMQConfig will restore mosquitto's most recent configuration-backup from remote backupsystem and restore it to /opt/mosquitto. If no backup can be found a warning will be displayed.
 * setupDocker install the docker-software on our machine and add the current user to group docker
 * portainer.yml holds the initial portainer configuration for portainer only
-* fhem.yml holds configuration for FHEM docker
 * mosquitto.yml holds configuration for mosquitto docker which is needed for communication FHEM <-> Home Assistant
+* sonos2mqtt.yml holds configuration for sonos2mqtt docker which is provides communication platform FHEM -> Sonos Speaker
+* fhem.yml holds configuration for FHEM docker
 * HASS.yml holds configuration for Home Assistant docker
 * minidlna.yml holds configuration for minidlna docker
 # Download set of scripts
