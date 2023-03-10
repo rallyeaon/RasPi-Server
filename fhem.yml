@@ -13,13 +13,14 @@ services:
     container_name: fhem
     hostname: fhem
     restart: always
-    ports:
-      - "1883:1883"
-      - "8883:8883"
-      - "8083:8083"
-      - "8084:8084"
-      - "8085:8085"
-      - "7072:7072"
+    network_mode: host
+#    ports:
+#      - "1883:1883"
+#      - "8883:8883"
+#      - "8083:8083"
+#      - "8084:8084"
+#      - "8085:8085"
+#      - "7072:7072"
     volumes:
       - /opt/fhemdocker/:/opt/fhem/
     environment:
