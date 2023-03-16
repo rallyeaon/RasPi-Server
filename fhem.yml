@@ -9,18 +9,11 @@ version: '3'
 services:
 
   fhem:
-    image: ghcr.io/fhem/fhem/fhem-docker:latest
+    image: ghcr.io/fhem/fhem/fhem-docker:bullseye
     container_name: fhem
     hostname: fhem
     restart: always
     network_mode: host
-#    ports:
-#      - "1883:1883"
-#      - "8883:8883"
-#      - "8083:8083"
-#      - "8084:8084"
-#      - "8085:8085"
-#      - "7072:7072"
     volumes:
       - /opt/fhemdocker/:/opt/fhem/
     environment:
