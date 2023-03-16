@@ -15,7 +15,7 @@ services:
     restart: always
     network_mode: host
     volumes:
-      - /opt/fhemdocker/:/opt/fhem/
+      - /opt/fhem/:/opt/fhem/
     environment:
       FHEM_UID: 999
       FHEM_GID: 20
