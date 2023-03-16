@@ -14,7 +14,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 #
 Remote=josef@RasPi-Backup
-RecoveryPath=/opt/fhemdocker
+RecoveryPath=/opt/fhem
 RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath/backup
 
 numbers=( $(ssh $Remote ls $RemotePath | grep .tar.gz) )
