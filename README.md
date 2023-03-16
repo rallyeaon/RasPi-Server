@@ -30,4 +30,4 @@ Short description the Basic Script in sort of usage:
 #### Restore data & configurations from backup-system
 `wget https://github.com/rallyeaon/RasPi-Server/raw/main/restore{FHEMData.sh,HASSData.sh,MQConfig.sh}`
 #### Receive docker compose content
-`wget https://github.com/rallyeaon/RasPi-Server/raw/main/{portainer.yml,fhem.yml,mosquitto.yml,HASS.yml,minidlna.yml}`
+`wget https://github.com/rallyeaon/RasPi-Server/raw/main/{portainer.yml,fhem.yml,mosquitto.yml,HASS.yml,minidlna.yml,alexa-fhem.yml}`
