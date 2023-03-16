@@ -23,6 +23,8 @@ Short description the Basic Script in sort of usage:
 * sonos2mqtt.yml holds configuration for sonos2mqtt docker which is provides communication platform FHEM -> Sonos Speaker
 * fhem.yml holds configuration for FHEM docker
 * HASS.yml holds configuration for Home Assistant docker
+* deCONZ.yml holds configuration for my CONBEE II deCONZ docker
+* alexa-fhem.yml holds configuration for FHEM-connection to Alexa
 * minidlna.yml holds configuration for minidlna docker
 # Download set of scripts
 #### Setup system, install and customize Samba to my needs
@@ -30,4 +32,4 @@ Short description the Basic Script in sort of usage:
 #### Restore data & configurations from backup-system
 `wget https://github.com/rallyeaon/RasPi-Server/raw/main/restore{FHEMData.sh,HASSData.sh,MQConfig.sh}`
 #### Receive docker compose content
-`wget https://github.com/rallyeaon/RasPi-Server/raw/main/{portainer.yml,fhem.yml,mosquitto.yml,HASS.yml,minidlna.yml,deCOMZ.yml,alexa-fhem.yml}`
+`wget https://github.com/rallyeaon/RasPi-Server/raw/main/{portainer.yml,fhem.yml,mosquitto.yml,HASS.yml,minidlna.yml,deCONZ.yml,alexa-fhem.yml,sonos2mqtt.yml}`
