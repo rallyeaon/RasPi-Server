@@ -12,8 +12,7 @@ services:
   sonos:
     image: ghcr.io/svrooij/sonos2mqtt
     restart: unless-stopped
-    ports:
-      - "6329:6329"
+    network_mode: host
     environment:
       - SONOS2MQTT_DEVICE=192.168.57.77 # IP of my SONOS One - Service discovery doesn't work very well inside docker, so start with one device.
       - SONOS2MQTT_MQTT=mqtt://192.168.57.30:1883 #
