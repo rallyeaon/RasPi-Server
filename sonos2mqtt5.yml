@@ -1,0 +1,22 @@
+# this is a compose.yaml-file to run sonos2mqtt stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add sonos2mqtt to the environment
+# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/sonos2mqtt.yml
+#
+##### ----- sonos ----- ########################################################
+  sonos:
+    image: ghcr.io/svrooij/sonos2mqtt
+    container_name: sonos
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - SONOS2MQTT_DEVICE=192.168.57.77 # IP of my SONOS One - Service discovery doesn't work very well inside docker, so start with one device.
+      - SONOS2MQTT_MQTT=mqtt://192.168.57.30:1883 #
+#      # - SONOS2MQTT_DISTINCT=true # if your want distinct topics
+      - SONOS_LISTENER_HOST=192.168.57.30 # Docker host IP
+#      # - SONOS_TTS_ENDPOINT=http://sonos-tts:5601/api/generate # If you deployed the TTS with the same docker-compose
+#
+#
