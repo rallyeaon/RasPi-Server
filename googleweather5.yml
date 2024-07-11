@@ -1,0 +1,19 @@
+# this is a compose.yaml-file to run miniDLNA stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add miniDLNA to the environment# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/googleweather.yml
+#
+##### ----- FHEMpy google_weather ----- ########################################
+  fhempy-googleweather:
+    image: ghcr.io/fhem/fhempy-docker_google_weather:releases-1.4-beta
+    container_name: FHEMpy-google_weather
+    hostname: fhempy-googleweather
+    restart: always
+    networks:
+      fhem_net:
+        ipv4_address: 172.16.57.5
+
+#
+#
