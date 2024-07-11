@@ -1,0 +1,27 @@
+# this is a compose.yaml-file to run alexa-fhem stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add FHEM to the environment# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/alexa-fhem.yml
+#
+#
+##### ----- alexa-fhem -----## #################################################
+  alexa-fhem:
+# letztes update: 4.4.24 v5.0.9 (latest)
+    image: ghcr.io/fhem/alexa-fhem:latest
+    container_name: alexa-fhem
+    restart: always
+    volumes:
+      - /opt/alexa-fhem/:/alexa-fhem/
+    environment:
+      ALEXAFHEM_UID: 6062
+      ALEXAFHEM_GID: 6062
+      TZ: Europe/Vienna
+    networks:
+      fhem_net:
+        ipv4_address: 172.16.57.3
+    ports:
+      - 3000:3000
+#
+
