@@ -3,12 +3,11 @@
 # However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add FHEM to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/alexa-fhem.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/alexa-fhem5.yml
 #
 #
 ##### ----- alexa-fhem -----## #################################################
   alexa-fhem:
-# letztes update: 4.4.24 v5.0.9 (latest)
     image: ghcr.io/fhem/alexa-fhem:latest
     container_name: alexa-fhem
     restart: always
