@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x#
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/restoreMQConfig.sh
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/restoreMQConfig5.sh
 #
 #
 # get all filenames of mosquitto-config-Backups into the array
