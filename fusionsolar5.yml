@@ -1,0 +1,20 @@
+# this is a compose.yaml-file to run miniDLNA stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add miniDLNA to the environment# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/fusionsolar.yml
+#
+##### ----- fusionsolar ----- #####################################################
+  fhempy-fusionsolar:
+# letztes update: 1.4.4 10.4.2024
+    image: ghcr.io/fhem/fhempy-docker_fusionsolar:1.4.4
+    container_name: FHEMpy-fusionsolar
+    hostname: fhempy-fusionsolar
+    restart: always
+    networks:
+      fhem_net:
+        ipv4_address: 172.16.57.4
+
+#
+#
