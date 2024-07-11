@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/setupSamba.sh
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/setupSamba5.sh
 #
 # function copied from raspi-config  -  it's updating /boot/config.txt
 
