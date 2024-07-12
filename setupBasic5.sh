@@ -33,6 +33,8 @@ fi
 if [ ! -d "/mnt/SonosSpeak" ]; then
    mkdir /mnt/SonosSpeak
 fi
+# add myself to group dialout - recommended for Phoscon
+sudo usermod -aG dialout $USER
 
 # Reboot
 echo "A reboot is strongly recommended"
