@@ -7,7 +7,6 @@
 #
 ##### ----- fusionsolar ----- #####################################################
   fhempy-fusionsolar:
-# letztes update: 1.4.4 10.4.2024
     image: ghcr.io/fhem/fhempy-docker_fusionsolar:1.4.4
     container_name: FHEMpy-fusionsolar
     hostname: fhempy-fusionsolar
