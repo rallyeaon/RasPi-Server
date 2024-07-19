@@ -27,9 +27,4 @@ Short description the Basic Script in sort of usage:
 * alexa-fhem.yml holds configuration for FHEM-connection to Alexa
 * miniDLNA.yml holds configuration for minidlna docker
 # Download set of scripts
-#### Setup system, install and customize Samba to my needs
-`wget https://github.com/rallyeaon/RasPi-Server/raw/main/setup{Basic.sh,Samba.sh,Docker.sh}`
-#### Restore data & configurations from backup-system
-`wget https://github.com/rallyeaon/RasPi-Server/raw/main/restore{FHEMData.sh,HASSData.sh,MQConfig.sh}`
-#### Receive docker compose content
-`wget https://github.com/rallyeaon/RasPi-Server/raw/main/{portainer.yml,fhem.yml,mosquitto.yml,HASS.yml,miniDLNA.yml,deCONZ.yml,alexa-fhem.yml,sonos2mqtt.yml}`
+see within the script
