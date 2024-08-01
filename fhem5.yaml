@@ -6,7 +6,7 @@
 # To install cpm-packages use line 21 as template. For FHEMpy Websockets needs to be installed
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/fhem5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/fhem5.yaml
 #
 ##### ----- fhem ----- ########################################################
   fhem:
@@ -37,4 +37,6 @@
 #      - "1885:1885"
       - "8883:8883"
       - "8084:8084"
+      - "8080:8080"             # for remote ConBee II
+
 #
