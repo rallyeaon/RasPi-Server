@@ -1,15 +1,12 @@
-# this is a compose.yaml-file to run mosquitto stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
-#
-# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add mosquitto to the environment# (re)start docker using command 'docker compose up -d'
+# this is a compose.yaml-file to run Portainer stand-alone as a docker/portainer environment if the download is to be renamed to compose.yaml
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/portainer5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/portainer5.yaml
 #
 #
 #
-##### ----- portainer ----- ####################################################
 services:
-
+##### ----- portainer ----- ####################################################
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
@@ -21,9 +18,6 @@ services:
 #      - portainer_data:/data
       - /opt/portainer/data:/data
     restart: unless-stopped
-#
-#
-#
 #
 ##### ----- network definitions ----- ##########################################
 networks:
