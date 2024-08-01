@@ -3,8 +3,9 @@
 # However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add miniDLNA to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/fusionsolar5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/fusionsolar5.yaml
 #
+services:
 ##### ----- fusionsolar ----- #####################################################
   fhempy-fusionsolar:
     image: ghcr.io/fhem/fhempy-docker_fusionsolar:1.4.4
