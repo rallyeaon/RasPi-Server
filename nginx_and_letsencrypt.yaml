@@ -1,0 +1,33 @@
+# this is a compose.yaml-file to run nginx & letsencrypt stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add nginx & letsencrypt to the environment# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/nginx_and_letsencrypt.yaml
+#
+#
+#
+services:
+
+##### ----- frontproxy ----- ####################################################
+  nginx-proxy:
+    image: nginx:latest
+    container_name: nginx-proxy
+    volumes:
+      - /opt/nginx:/etc/nginx/conf.d:ro
+      - /opt/certbot/www/:/var/www/certbot/:ro
+      - /opt/certbot/conf:/etc/nginx/ssl
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+#
+##### ----- letsencrypt ----- ####################################################
+  certbot:
+    container_name: letsencrypt
+    image: certbot/certbot:latest
+    restart: always
+    volumes:
+      - /opt/certbot/www/:/var/www/certbot/:rw
+      - /opt/certbot/conf/:/etc/letsencrypt/:rw
+#
