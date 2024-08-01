@@ -1,11 +1,12 @@
 # this is a compose.yaml-file to run deCONZ stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
 #
-# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add deCONZ to the environment
+# However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yaml to add deCONZ to the environment
 # (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/deCONZ5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/deCONZ5.yaml
 #
+services:
 ##### ----- deconz ----- ######################################################
   deconz:
     image: ghcr.io/deconz-community/deconz-docker:stable
