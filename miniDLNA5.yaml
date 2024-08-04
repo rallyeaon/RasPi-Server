@@ -3,8 +3,9 @@
 # However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add miniDLNA to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/miniDLNA5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/miniDLNA5.yaml
 #
+services:
 ##### ----- minidlna ----- #####################################################
   minidlna:
     container_name: miniDLNA
@@ -22,5 +23,4 @@
       - MINIDLNA_FRIENDLY_NAME=MiniDLNA-Docker
       - MINIDLNA_MAX_CONNECTIONS=8
       - MINIDLNA_SERIAL=08154711
-#
 #
