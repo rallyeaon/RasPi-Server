@@ -4,8 +4,9 @@
 # (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/sonos2mqtt5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/sonos2mqtt5.yaml
 #
+services:
 ##### ----- sonos ----- ########################################################
   sonos:
     image: ghcr.io/svrooij/sonos2mqtt
@@ -13,10 +14,9 @@
     restart: unless-stopped
     network_mode: host
     environment:
-      - SONOS2MQTT_DEVICE=192.168.57.77 # IP of my SONOS One - Service discovery doesn't work very well inside docker, so start with one device.
-      - SONOS2MQTT_MQTT=mqtt://192.168.57.40:1883 #
+      - SONOS2MQTT_DEVICE=192.168.57.77 # IP of my SONOS One - Service discover>
+      - SONOS2MQTT_MQTT=mqtt://192.168.57.50:1883 #
 #      # - SONOS2MQTT_DISTINCT=true # if your want distinct topics
-      - SONOS_LISTENER_HOST=192.168.57.40 # Docker host IP
-#      # - SONOS_TTS_ENDPOINT=http://sonos-tts:5601/api/generate # If you deployed the TTS with the same docker-compose
-#
+      - SONOS_LISTENER_HOST=192.168.57.50 # Docker host IP
+#      # - SONOS_TTS_ENDPOINT=http://sonos-tts:5601/api/generate # If you deplo>
 #
