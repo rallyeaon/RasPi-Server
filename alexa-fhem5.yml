@@ -6,6 +6,7 @@
 # wget https://github.com/rallyeaon/RasPi-Server/raw/main/alexa-fhem5.yml
 #
 #
+services:
 ##### ----- alexa-fhem -----## #################################################
   alexa-fhem:
     image: ghcr.io/fhem/alexa-fhem:latest
