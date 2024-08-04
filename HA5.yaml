@@ -4,7 +4,7 @@
 # (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/HA5.yml
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/HA5.yaml
 #
 ##### ----- homeassistant ----- ################################################
   homeassistant:
