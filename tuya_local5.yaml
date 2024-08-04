@@ -1,0 +1,17 @@
+# this is a compose.yaml-file to run FHEMpy tuya_local stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
+#
+# However, the lines below the keyword "services" are intended to be copied into an existing projects/frontpproxy/compose.yaml to add FHEMpy tuya_local to the environment# (re)start docker using command 'docker compose up -d'
+#
+# download this file using command:
+# wget https://github.com/rallyeaon/RasPi-Server/raw/main/tuya_local5.yaml
+#
+services:
+##### ----- FHEMpy tuya_local ----- ########################################
+  fhempy-tuya:
+    image: ghcr.io/fhem/fhempy-docker_tuya:1.4.4
+    container_name: FHEMpy-tuya
+    hostname: fhempy-tuya
+    restart: always
+    networks:
+      fhem_net:
+#
