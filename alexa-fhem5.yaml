@@ -21,7 +21,4 @@ services:
     networks:
       fhem_net:
         ipv4_address: 172.16.57.3
-    ports:
-      - 3000:3000
 #
-
