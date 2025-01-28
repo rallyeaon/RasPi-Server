@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/re-setupPartition.sh
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/re-setupPartition5.sh
 #
 echo "This script will re-create the data-partition of the previousely used but"
 echo "newly flashed Raspberian-OS lite on my NVMe 500GB SSD."
