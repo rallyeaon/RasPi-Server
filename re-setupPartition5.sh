@@ -3,13 +3,12 @@
 # download this script using the command:
 # wget https://github.com/rallyeaon/RasPi-Server/raw/main/re-setupPartition.sh
 #
-device="/dev/sdb"
-StartSectorP3=156250112
-LastSectorP2=$((StartSectorP3 - 1))
 echo "This script will re-create the data-partition of the previousely used but"
-echo "newly flashed Raspberian-OS lite on the NVMe 500GB SSD."
+echo "newly flashed Raspberian-OS lite on my NVMe 500GB SSD."
 echo "The StartSector of the data-partition is assumed as "$startsector" and the partition"
-echo "will use all remaining space on "$device"."
+echo "will use all remaining space on "$device". Please make sure $startsector is identical"
+echo " to the startsector of the data-partition in the previous installation - otherwise"
+echo "recovery will fail and data are lost"
 echo "Furthermore the tiny root-partition will be expanded to provide as much as possible space"
 
 if [ $(id -u) -ne 0 ]; then
@@ -19,13 +18,14 @@ if [ $(id -u) -ne 0 ]; then
    exit $?
 fi
 
-# LastSectorP3=`parted -s /dev/sdb unit s print --json | jq '.disk.partitions[]  | select(.number==3).start'`
+# initialize parameters
+device="/dev/sdb"
+StartSectorP3=156250112
+LastSectorP2=$((StartSectorP3 - 1))
 
 # print partitions on terminal
 echo "Modifying below device:"
 parted -s "$device" print free unit s print free
-
-echo $LastSectorP2 $StartSectorP3
 
 read -r -p "Do you want to continue? [y/N] " response
 response=${response,,}
