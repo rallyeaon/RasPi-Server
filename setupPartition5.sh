@@ -10,6 +10,12 @@ echo "device leaving some 80GB by default for Rasperian OS. The size fpr root-pa
 echo "can be changed during installation process at your convenience"
 echo "The modified device mus be available as "$device". If this is not the case, please"
 echo "modify this script to your needs"
+echo ""
+echo ""
+echo "If you are 100% sure you want to run this Script and you know what you are doing"
+echo "please edit this file and remove/comment the exit-statement right after these messages"
+
+exit
 
 if [ $(id -u) -ne 0 ]; then
    echo "$0 must run as 'root'"
