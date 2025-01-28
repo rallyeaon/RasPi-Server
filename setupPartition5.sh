@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/setupPartition.sh
+# wget https://github.com/rallyeaon/RasPi-Server/blob/main/setupPartition5.sh
 #
 echo "This script is to be used on a brand-new or as brand-new considered device (NVMe)"
 echo "for a RaspBerry5 as boot-device flased the first time with a Raspberian OS"
