@@ -13,23 +13,27 @@ if [ $(id -u) -eq 0 ]; then
 fi
 #
 
+setupNici=false
+
 ### install samba
 sudo apt -y install samba
 
 # add user "josef" to group "sambashare"
 sudo usermod -aG sambashare sepp
 
-# create a user for Nici to enable her to use samba-shares
-sudo adduser nici --no-create-home --disabled-login --shell /bin/sh --uid 1001
-sudo usermod -aG users nici
-
 # create samba-id & samba-pw for user josef
 echo "create samba-user sepp"
 sudo smbpasswd -a sepp
 
-# create samba-id & samba-pw for user cruella
-echo "create samba-user cruella"
-sudo smbpasswd -a nici
+# create a user for Nici to enable her to use samba-shares
+if [[ $setupNici = "true" ]] ; then
+   sudo adduser nici --no-create-home --disabled-login --shell /bin/sh --uid 1001
+   sudo usermod -aG users nici
+   
+   # create samba-id & samba-pw for user cruella
+   echo "create samba-user cruella"
+   sudo smbpasswd -a nici
+fi
 
 # recover smb-configuration from remote backup-host
 Remote=josef@RasPi-Backup
