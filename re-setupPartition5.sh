@@ -87,9 +87,7 @@ su -c "echo '#' >> $tempdir/etc/fstab"
 
 # now let's add the 2TB-HD attached via USB3 to /etc/fstab
 su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
-# Attention!! the next line is commented in fstab and needs to be uncommented in case share-volume
-#   shall be mounted. Please doublecheck the PARTUUID of share-volume 
-su -c "echo '#PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
 
 # now let's create the subdirectories within /mnt for the mount points
 if [ ! -d "$tempdir/mnt/share" ]; then
