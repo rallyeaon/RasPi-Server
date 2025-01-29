@@ -50,7 +50,6 @@ fi
 # print output of blkid & partitions on terminal
 blkid | grep NVMeData
 parted -s "$device" print free unit s print free
-echo "alles bestens"
 
 # check and repair rootfs-filesystem if necessarry
 e2fsck -fy "${device}2"
