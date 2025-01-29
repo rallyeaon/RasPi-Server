@@ -17,22 +17,12 @@ fi
 ### Start Script
 
 # first load the latest software
-apt -y update
+apt update
 apt -y full-upgrade
 
 # config the default language, call raspi-config in background to perform this task
 raspi-config nonint do_change_locale de_AT.UTF-8
 
-# backup /etc/fstab
-cp /etc/fstab /etc/fstab.ok
-
-if [ ! -d "/mnt/share" ]; then
-   mkdir /mnt/share
-fi
-
-if [ ! -d "/mnt/SonosSpeak" ]; then
-   mkdir /mnt/SonosSpeak
-fi
 # add myself to group dialout - recommended for Phoscon
 sudo usermod -aG dialout $USER
 
