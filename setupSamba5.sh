@@ -36,7 +36,7 @@ if [[ $setupNici = "true" ]] ; then
 fi
 
 # recover smb-configuration from remote backup-host
-Remote=josef@RasPi-Backup
+Remote=sepp@RasPi-Backup
 RemotePath=/mnt/BackupDevice/RasPi-Server
 Path=/etc/samba/
 Filename=smb.conf
