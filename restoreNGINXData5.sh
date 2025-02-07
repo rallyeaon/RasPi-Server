@@ -9,7 +9,7 @@ if [ $(id -u) -eq 0 ]; then
    exit
 fi
 #
-Remote=josef@RasPi-Backup
+Remote=sepp@RasPi-Backup
 RecoveryPath=/opt/nginx
 RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath
 
