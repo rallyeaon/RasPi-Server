@@ -26,19 +26,20 @@ fi
 
 # initialize parameters
 device="/dev/sdb"
-RootFsSize=80
+StartSectorP3=156250112
+LastSectorP2=$((StartSectorP3 - 1))
 DataLabel="NVMeData"
 
 # list partitions on terminal
 sudo parted -s "$device" print free unit s print free
 
 # determine size of root-partition. Default is 80G
-read -p "Root-partition "$RootFsSize"G ändern? Bitte die gewünschte Größe eingeben, oder einfach enter: " RootSize
-if [[ $RootSize != "" ]] ; then
-   RootFsSize=$RootSize
+read -p "Root-partition "$LastSectorP2"s ändern? Bitte die gewünschte Größe eingeben, oder einfach enter: " LastSector
+if [[ $LastSector != "" ]] ; then
+   LastSectorP2=$LastSector
 fi
-if echo $RootFsSize | egrep -q "^-?[0-9]+$"; then
-   echo "Systempartition wird auf ${RootFsSize}G gesetzt"
+if echo $LastSectorP2 | egrep -q "^-?[0-9]+$"; then
+   echo "Systempartition wird auf ${LastSectorP2}s gesetzt"
 else
    echo "Ungülitige (nicht-numerische) Eingabe"
    exit
@@ -47,17 +48,14 @@ fi
 # check and repair rootfs-filesystem if necessarry
 e2fsck -fy "${device}2"
 
-# resize the rottfs-filesystem to the new size
-resize2fs "${device}2" "${RootFsSize}G"
-
 # resize the partition of rootfs
-parted $device resizepart 2 "${RootFsSize}G"
+parted $device resizepart 2 "${LastSectorP2}s"
 
 # make sure the rootfs-filesystem is conuming all space available in the partition
 resize2fs "${device}2"
 
 # create a data-partition on the remaining space
-parted $device  mkpart primary ext4 "${RootFsSize}G" 100%
+parted $device mkpart primary ext4 "${StartSectorP3}s" 100%
 
 # create an ext4 filesystem on the new partition
 mkfs.ext4 "${device}3"
@@ -67,4 +65,55 @@ tune2fs -L $DataLabel "${device}3"
 
 # show the result of the work performed
 sudo parted -s "$device" print free unit s print free
+
+# Let's add NVMeData and the Share-volume to /etc/fstab to ensure it will be mounted on every boot process:
+# Get name of PARTUUID3 (the data-volume NVMeData)
+PARTUUID3=$(blkid -o value -s PARTUUID /dev/sdb3)
+
+#create a temporary directory to provide a mount-point for the new root-volume
+
+tempdir=$(mktemp -d)
+
+# mount the root-volume to this mount-point
+mount /dev/sdb2 $tempdir
+
+# create a backup of /etc/fstab
+cp -v $tempdir/etc/fstab $tempdir/etc/fstab.ok
+
+# add the relevant line at the end of /etc/fstab
+su -c "echo '# mount the NVMeData-volume' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=$PARTUUID3  /mnt/NVMeData    ext4    defaults         0       2' >> $tempdir/etc/fstab"
+su -c "echo '#' >> $tempdir/etc/fstab"
+
+# now let's add the 2TB-HD attached via USB3 to /etc/fstab
+su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
+
+# add the relevant line at the end of /etc/fstab
+su -c "echo '# mount the NVMeData-volume' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=$PARTUUID3  /mnt/NVMeData    ext4    defaults         0       2' >> $tempdir/etc/fstab"
+su -c "echo '#' >> $tempdir/etc/fstab"
+
+# now let's add the 2TB-HD attached via USB3 to /etc/fstab
+su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
+
+# now let's create the subdirectories within /mnt for the mount points
+if [ ! -d "$tempdir/mnt/share" ]; then
+   mkdir $tempdir/mnt/share
+fi
+
+if [ ! -d "$tempdir/mnt/NVMeData" ]; then
+   mkdir $tempdir/mnt/NVMeData
+fi
+
+# SonosSpeak remains on /mnt for historical reasons but is planned to be moved to /mnt/NVMeData
+if [ ! -d "$tempdir/mnt/SonosSpeak" ]; then
+   mkdir $tempdir/mnt/SonosSpeak
+fi
+
+# boot-devise no longer needed, therefore unmount it from our system and remove temporary directory
+umount /dev/sdb2
+rm -r $tempdir
+
 exit
