@@ -3,7 +3,7 @@
 # This script restores configuration data for NGINX and LETSENCRYPT for my Raspi-Backup
 #
 # download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/restoreCERTData5.sh
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/restorePROXYData5.sh
 #
 if (( $EUID != 0 )); then
    echo "$0 must run as 'root'"
