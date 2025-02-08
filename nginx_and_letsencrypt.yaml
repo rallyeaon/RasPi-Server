@@ -1,7 +1,7 @@
 # this is a compose.yaml to run nginx & letsencrypt stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
 #
-# In my installation it is intended to be stored in /mnt/NVMeData/compose/nginx as compose.yaml
-# However, it may also be included into the "main"-compose.yaml located /mnt/NVMeData/compose
+# In my installation it is included into the "main"-compose.yaml (w/o "service:") located /mnt/NVMeData/compose
+# However, it may also be intended to be stored in /mnt/NVMeData/compose/nginx as compose.yaml
 #
 # download this file using command:
 # wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/nginx_and_letsencrypt.yaml
