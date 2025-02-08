@@ -28,11 +28,11 @@ sudo usermod -aG docker $USER
 docker -v
 
 # create volume for protainer_data
-if [ ! -d "/opt/portainer" ]; then
-   sudo mkdir /opt/portainer
+if [ ! -d "/mnt/NVMeData/myopt/portainer" ]; then
+   sudo mkdir /mnt/NVMeData/myopt/portainer
 fi
 
-if [ ! -d "/opt/portainer/data" ]; then
-   sudo mkdir /opt/portainer/data
+if [ ! -d "/mnt/NVMeData/myopt/portainer/data" ]; then
+   sudo mkdir /mnt/NVMeData/myopt/portainer/data
 fi
 
