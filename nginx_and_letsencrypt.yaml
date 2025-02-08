@@ -3,7 +3,7 @@
 # However, the lines below the keyword "services" are intended to be copied into an existing /mnt/NVMeData/compose.yaml to add nginx & letsencrypt to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/nginx_and_letsencrypt.yaml
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/nginx_and_letsencrypt.yaml
 #
 #
 #
