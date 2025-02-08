@@ -111,7 +111,7 @@ services:
       POSTGRES_EXTRA_OPTS: '--clean --if-exists'
       BACKUP_DIR: /db_dumps
     volumes:
-      - /opt/immich/db_dumps:/db_dumps
+      - /mnt/NVMeData/myopt/immich/db_dumps:/db_dumps
     depends_on:
       - database
 
