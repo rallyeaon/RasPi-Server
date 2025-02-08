@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/restoreCERTData5.sh
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/restoreCERTData5.sh
 #
 if [ $(id -u) -eq 0 ]; then
    echo "$0 must not run as 'root'"
