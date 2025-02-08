@@ -13,7 +13,7 @@ if [ $(id -u) -eq 0 ]; then
    exit
 fi
 #
-Remote=josef@RasPi-Backup
+Remote=sepp@RasPi-Backup
 RecoveryPath=/opt/homeassistant
 RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath/backup
 
@@ -37,9 +37,10 @@ echo "most recent backup is named"
 echo $RemotePath/$most_recent
 
 # retrieve a local copy of the most recent Home Assistant-Backup
-rsync -4auv --owner --numeric-ids --group --super $Remote:$RemotePath/$most_recent .
+#rsync -4auv --owner --numeric-ids --group --super $Remote:$RemotePath/$most_recent .
+rsync -4auv $Remote:$RemotePath/$most_recent .
 
-# untar the HomeAssistantBackup 
+# untar the HomeAssistantBackup
 if [ ! -d "$RecoveryPath" ]; then
    sudo mkdir $RecoveryPath
 fi
