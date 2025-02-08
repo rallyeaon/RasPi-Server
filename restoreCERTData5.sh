@@ -10,7 +10,7 @@ if [ $(id -u) -eq 0 ]; then
 fi
 #
 Remote=sepp@RasPi-Backup
-RecoveryPath=/opt/cert
+RecoveryPath=/opt/certbot
 RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath
 
 # retrieve a local copy of the most recent FHEM-Backup
