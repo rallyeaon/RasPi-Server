@@ -4,10 +4,10 @@
 # (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/immich.yaml
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/immich.yaml
 #
 #
-# WARNING: Make sure to use the docker-compose.yml of the current release:
+# WARNING: Make sure to use the compose.yaml of the current release:
 #
 # https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
 #
