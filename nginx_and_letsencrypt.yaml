@@ -1,6 +1,6 @@
 # this is a compose.yaml-file to run nginx & letsencrypt stand-alone in a docker/portainer environment if the download is renamed to compose.yaml
 #
-# However, the lines below the keyword "services" are intended to be copied into an existing projects/frontpproxy/compose.yaml to add nginx & letsencrypt to the environment# (re)start docker using command 'docker compose up -d'
+# However, the lines below the keyword "services" are intended to be copied into an existing /mnt/NVMeData/compose.yaml to add nginx & letsencrypt to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
 # wget https://github.com/rallyeaon/RasPi-Server/raw/main/nginx_and_letsencrypt.yaml
@@ -14,9 +14,9 @@ services:
     image: nginx:latest
     container_name: nginx-proxy
     volumes:
-      - /opt/nginx:/etc/nginx/conf.d:ro
-      - /opt/certbot/www/:/var/www/certbot/:ro
-      - /opt/certbot/conf:/etc/nginx/ssl
+      - /mnt/NVMeData/myopt/nginx:/etc/nginx/conf.d:ro
+      - /mnt/NVMeData/myopt/certbot/www/:/var/www/certbot/:ro
+      - /mnt/NVMeData/myopt/certbot/conf:/etc/nginx/ssl
     ports:
       - "80:80"
       - "443:443"
@@ -28,6 +28,6 @@ services:
     image: certbot/certbot:latest
     restart: always
     volumes:
-      - /opt/certbot/www/:/var/www/certbot/:rw
-      - /opt/certbot/conf/:/etc/letsencrypt/:rw
+      - /mnt/NVMeData/myopt/certbot/www/:/var/www/certbot/:rw
+      - /mnt/NVMeData/myopt/certbot/conf/:/etc/letsencrypt/:rw
 #
