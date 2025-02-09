@@ -14,8 +14,8 @@ if [ $(id -u) -eq 0 ]; then
 fi
 #
 Remote=sepp@RasPi-Backup
-RecoveryPath=/opt/homeassistant
-RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath/backup
+RecoveryPath=/mnt/NVMeData/myopt/homeassistant
+RemotePath=/mnt/BackupDevice/RasPi5-Server$RecoveryPath/backup
 
 numbers=( $(ssh $Remote ls $RemotePath | grep .tar.gz) )
 
@@ -49,3 +49,4 @@ sudo tar -xvzf $most_recent -C /
 rm $most_recent
 
 exit
+
