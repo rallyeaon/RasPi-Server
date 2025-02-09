@@ -22,5 +22,9 @@ rsync -4auv $Remote:$RemotePath $RecoveryPath
 RecoveryPath=/mnt/NVMeData/compose/immich/immich_upd
 rsync -4auv $Remote:$RemotePath $RecoveryPath
 
+# retrieve a local copy of the immich db_dumps 
+RecoveryPath=/mnt/NVMeData/myopt/immich/db_dumps/
+RemotePath=/mnt/BackupDevice/RasPi5-Server$RecoveryPath
+sudo rsync -4auv $Remote:$RemotePath $RecoveryPath
 
 exit
