@@ -12,17 +12,17 @@ if (( $EUID != 0 )); then
 fi
 #
 Remote=sepp@RasPi-Backup
-RecoveryPath=/opt/certbot
-RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath
+RecoveryPath=/mnt/NVMeData/myopt/certbot
+RemotePath=/mnt/BackupDevice/RasPi5-Server$RecoveryPath
 
-# retrieve a local copy of the most recent FHEM-Backup
-rsync -4auv --rsync-path="sudo rsync" $Remote:$RemotePath /opt
+# retrieve a local copy of letsencrypt data
+rsync -4auv --rsync-path="sudo rsync" $Remote:$RemotePath $RecoveryPath
 
 
-RecoveryPath=/opt/nginx
-RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath
+RecoveryPath=/mnt/NVMeData/myopt/nginx
+RemotePath=/mnt/BackupDevice/RasPi5-Server$RecoveryPath
 
-# retrieve a local copy of the most recent FHEM-Backup
-rsync -4auv --rsync-path="sudo rsync" $Remote:$RemotePath /opt
+# retrieve a local copy of nginx data
+rsync -4auv --rsync-path="sudo rsync" $Remote:$RemotePath $RecoveryPath
 
 exit
