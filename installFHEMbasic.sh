@@ -22,4 +22,14 @@ apt install -y fhem
 EOF
 # for FHEMpy below modules are to be installed
 sudo apt install -y python3 python3-pip python3-dev python3-venv libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libglib2.0-dev libdbus-1-dev bluez libbluetooth-dev git libprotocol-websocket-perl
+
+
+# install prerequisites for alexa-fhem
+sudo apt install -y nodejs npm
+# show version of nodejs
+node --version
+# now let's install alexa-fhem from official repository
+sudo npm install -g alexa-fhem
+# clean-up
+sudo apt autoremove
 exit
