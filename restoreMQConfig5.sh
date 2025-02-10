@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x#
+# set -x
 # download this script using the command:
 # wget https://github.com/rallyeaon/RasPi-Server/raw/main/restoreMQConfig5.sh
 #
@@ -13,9 +13,9 @@ if [ $(id -u) -eq 0 ]; then
    exit
 fi
 #
-Remote=josef@RasPi-Backup
-RecoveryPath=/opt/mosquitto
-RemotePath=/mnt/BackupDevice/RasPi-Server$RecoveryPath/backup
+Remote=sepp@RasPi-Backup
+RecoveryPath=/mnt/NVMeData/myopt/mosquitto
+RemotePath=/mnt/BackupDevice/RasPi5-Server$RecoveryPath/backup
 
 numbers=( $(ssh $Remote ls $RemotePath | grep .tar.gz) )
 
@@ -37,13 +37,13 @@ echo "most recent backup is named"
 echo $RemotePath/$most_recent
 
 # retrieve a local copy of the most recent mosquitto-conf-Backup
-rsync -4auv --owner --numeric-ids --group --super $Remote:$RemotePath/$most_recent .
+rsync -4auv $Remote:$RemotePath/$most_recent .
 
 # untar the mosquitto-configBackup 
 if [ ! -d "$RecoveryPath" ]; then
    sudo mkdir $RecoveryPath
 fi
-sudo tar -xzf $most_recent -C /
+sudo tar -xvzf $most_recent -C /
 
 # clean-up disk
 rm $most_recent
