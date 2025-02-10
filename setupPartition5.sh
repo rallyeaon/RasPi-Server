@@ -98,13 +98,17 @@ su -c "echo '#' >> $tempdir/etc/fstab"
 su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
 su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
 
-# now let's create the subdirectories within /mnt for the mount points
+# now let's create the subdirectories within /mnt for the mount points and set owners where approbiate
 if [ ! -d "$tempdir/mnt/share" ]; then
    mkdir $tempdir/mnt/share
 fi
 
 if [ ! -d "$tempdir/mnt/NVMeData" ]; then
    mkdir $tempdir/mnt/NVMeData
+   mkdir $tempdir/mnt/NVMeData/compose
+   mkdir $tempdir/mnt/NVMeData/myopt
+   chown 1000:1000 /mnt/NVMeData/compose
+   chown 1000:1000 /mnt/NVMeData/myopt
 fi
 
 # SonosSpeak remains on /mnt for historical reasons but is planned to be moved to /mnt/NVMeData
