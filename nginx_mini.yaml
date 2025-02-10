@@ -6,7 +6,8 @@
 # download this file using command:
 # wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/nginx_mini.yaml
 #
-# add a file named /var/www/html/index.html with following (or similar) content (make sure you remove the "#"
+# add a file named /var/www/html/index.html (owner is root:root) with following (or similar)
+# content (make sure you remove the "#" in first column)
 #<!DOCTYPE html>
 #<html>
 #<head>
