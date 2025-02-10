@@ -1,8 +1,22 @@
+# this is a compose.yaml-file to run nginx at a minimal configuration to prevent a 404 in case my
+# domain is called w/o 3rd-level qualifier
+# Just add (copy/pastfrom here or download and copy/past) the below lines to the
+# "main"-compose.yaml w/o the "services:"
 #
-# this sample is copied from 
-#    https://zomro.com/blog/faq/317-kak-ustanovit-nginx-v-docker-compose
-# when removing from machine make sure the associated file in
-# /var/www/html/index.html will be deleted too
+# download this file using command:
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/HA5.yaml
+#
+# add a file named /var/www/html/index.html with following (or similar) content (make sure you remove the "#"
+#<!DOCTYPE html>
+#<html>
+#<head>
+#    <title>Welcome to my domain!</title>
+#</head>
+#<body>
+#    <h1>Welcome to my domain!</h1>
+#    <p>Unfortunately you are lost on this page. Please get in contact with me personally to receive a propper URL</p>
+#</body>
+#</html>
 #
 services:
   nginx-mini:
