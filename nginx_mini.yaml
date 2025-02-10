@@ -1,0 +1,16 @@
+#
+# this sample is copied from 
+#    https://zomro.com/blog/faq/317-kak-ustanovit-nginx-v-docker-compose
+# when removing from machine make sure the associated file in
+# /var/www/html/index.html will be deleted too
+#
+services:
+  nginx-mini:
+    image: nginx:latest
+    container_name: nginx-mini
+    ports:
+      - "9999:80"
+    volumes:
+      - /var/www/html:/usr/share/nginx/html
+    restart: always
+#
