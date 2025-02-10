@@ -3,7 +3,7 @@
 # However, the lines below the keyword "services" are intended to be copied into an existing /opt/compose.yml to add mosquitto to the environment# (re)start docker using command 'docker compose up -d'
 #
 # download this file using command:
-# wget https://github.com/rallyeaon/RasPi-Server/raw/main/mosquitto5.yaml
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/mosquitto5.yaml
 #
 #
 #
@@ -14,9 +14,9 @@ services:
     container_name: mosquitto
     restart: unless-stopped
     volumes:
-      - /opt/mosquitto:/mosquitto
-      - /opt/mosquitto/data:/mosquitto/data
-      - /opt/mosquitto/log:/mosquitto/log
+      - /mnt/NVMeData/myopt/mosquitto:/mosquitto
+      - /mnt/NVMeData/myopt/mosquitto/data:/mosquitto/data
+      - /mnt/NVMeData/myopt/mosquitto/log:/mosquitto/log
     networks:
       fhem_net:
         ipv4_address: 172.16.57.11
