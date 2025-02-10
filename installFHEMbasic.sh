@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # download this script using the command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/restoreImmichData5.sh
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/installFHEMbasic.sh
 #
 # This script performs the basic installation of FHEM (bare metal)
 # Attention: in case you run the script multiple times (for whatever reason) clean-up /etc/apt/sources.list from multiple identical entries
