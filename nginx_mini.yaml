@@ -4,7 +4,7 @@
 # "main"-compose.yaml w/o the "services:"
 #
 # download this file using command:
-# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/HA5.yaml
+# wget https://raw.githubusercontent.com/rallyeaon/RasPi-Server/refs/heads/main/nginx_mini.yaml
 #
 # add a file named /var/www/html/index.html with following (or similar) content (make sure you remove the "#"
 #<!DOCTYPE html>
