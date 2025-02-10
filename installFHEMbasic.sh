@@ -20,4 +20,6 @@ echo "deb [signed-by=/usr/share/keyrings/debianfhemde-archive-keyring.gpg] https
 apt update
 apt install -y fhem
 EOF
+# for FHEMpy below modules are to be installed
+sudo apt install -y python3 python3-pip python3-dev python3-venv libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libglib2.0-dev libdbus-1-dev bluez libbluetooth-dev git libprotocol-websocket-perl
 exit
