@@ -106,9 +106,21 @@ fi
 if [ ! -d "$tempdir/mnt/NVMeData" ]; then
    mkdir $tempdir/mnt/NVMeData
    mkdir $tempdir/mnt/NVMeData/compose
+   mkdir $tempdir/mnt/NVMeData/compose/immich
    mkdir $tempdir/mnt/NVMeData/myopt
-   chown 1000:1000 /mnt/NVMeData/compose
-   chown 1000:1000 /mnt/NVMeData/myopt
+   mkdir $tempdir/mnt/NVMeData/myopt/certbot
+   mkdir $tempdir/mnt/NVMeData/myopt/fhem
+   mkdir $tempdir/mnt/NVMeData/myopt/homeassistant
+   mkdir $tempdir/mnt/NVMeData/myopt/immich
+   mkdir $tempdir/mnt/NVMeData/myopt/mosquitto
+   mkdir $tempdir/mnt/NVMeData/myopt/nginx
+   mkdir $tempdir/mnt/NVMeData/myopt/portainer
+   mkdir $tempdir/mnt/NVMeData/sepp
+   chown 1000:1000 -R /mnt/NVMeData/compose
+   chown fhem:dialout -R /mnt/NVMeData/compose/fhem
+   chown 1883:1883 -R /mnt/NVMeData/compose/mosquitto
+   chown 1000:1000 -R /mnt/NVMeData/myopt
+   chown 1000:1000 -R /mnt/NVMeData/sepp
 fi
 
 # SonosSpeak remains on /mnt for historical reasons but is planned to be moved to /mnt/NVMeData
