@@ -31,5 +31,5 @@ node --version
 # now let's install alexa-fhem from official repository
 sudo npm install -g alexa-fhem
 # clean-up
-sudo apt autoremove
+sudo apt -y autoremove
 exit
