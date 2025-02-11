@@ -116,11 +116,11 @@ if [ ! -d "$tempdir/mnt/NVMeData" ]; then
    mkdir $tempdir/mnt/NVMeData/myopt/nginx
    mkdir $tempdir/mnt/NVMeData/myopt/portainer
    mkdir $tempdir/mnt/NVMeData/sepp
-   chown 1000:1000 -R /mnt/NVMeData/compose
-   chown  999:20   -R /mnt/NVMeData/compose/fhem
-   chown 1883:1883 -R /mnt/NVMeData/compose/mosquitto
-   chown 1000:1000 -R /mnt/NVMeData/myopt
-   chown 1000:1000 -R /mnt/NVMeData/sepp
+   chown 1000:1000 -R $tempdir/mnt/NVMeData/compose
+   chown  999:20   -R $tempdir/mnt/NVMeData/compose/fhem
+   chown 1883:1883 -R $tempdir/mnt/NVMeData/compose/mosquitto
+   chown 1000:1000 -R $tempdir/mnt/NVMeData/myopt
+   chown 1000:1000 -R $tempdir/mnt/NVMeData/sepp
 fi
 
 # SonosSpeak remains on /mnt for historical reasons but is planned to be moved to /mnt/NVMeData
