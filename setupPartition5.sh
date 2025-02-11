@@ -117,7 +117,7 @@ if [ ! -d "$tempdir/mnt/NVMeData" ]; then
    mkdir $tempdir/mnt/NVMeData/myopt/portainer
    mkdir $tempdir/mnt/NVMeData/sepp
    chown 1000:1000 -R /mnt/NVMeData/compose
-   chown fhem:dialout -R /mnt/NVMeData/compose/fhem
+   chown  999:20   -R /mnt/NVMeData/compose/fhem
    chown 1883:1883 -R /mnt/NVMeData/compose/mosquitto
    chown 1000:1000 -R /mnt/NVMeData/myopt
    chown 1000:1000 -R /mnt/NVMeData/sepp
