@@ -85,9 +85,20 @@ su -c "echo '# mount the NVMeData-volume' >> $tempdir/etc/fstab"
 su -c "echo 'PARTUUID=$PARTUUID3  /mnt/NVMeData    ext4    defaults         0       2' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
 
+# now let's mount --bind my home on NVMeData /etc/fstab
+su -c "echo '# mount --bind /home/sepp to /mnt/NVMeData/sepp' >> $tempdir/etc/fstab"
+su -c "echo '/mnt/NVMeData/sepp    /home/sepp      none    bind,nofail' >> $tempdir/etc/fstab"
+su -c "echo '#' >> $tempdir/etc/fstab"
+
+# now let's mount --bind fhem data on NVMeData /etc/fstab
+su -c "echo '# mount --bind /opt/fhem to /mnt/NVMeData/myopt/fhem' >> $tempdir/etc/fstab"
+su -c "echo '/mnt/NVMeData/myopt/fhem /opt/fhem    none    bind,nofail' >> $tempdir/etc/fstab"
+su -c "echo '#' >> $tempdir/etc/fstab"
+
 # now let's add the 2TB-HD attached via USB3 to /etc/fstab
 su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
 su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
+su -c "echo '#' >> $tempdir/etc/fstab"
 
 # now let's create the subdirectories within /mnt for the mount points
 if [ ! -d "$tempdir/mnt/share" ]; then
