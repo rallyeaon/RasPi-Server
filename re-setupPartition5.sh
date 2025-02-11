@@ -80,7 +80,7 @@ mount /dev/sdb2 $tempdir
 # create a backup of /etc/fstab
 cp -v $tempdir/etc/fstab $tempdir/etc/fstab.ok
 
-# add the relevant line at the end of /etc/fstab
+# add the mount for NVMeData at the end of /etc/fstab
 su -c "echo '# mount the NVMeData-volume' >> $tempdir/etc/fstab"
 su -c "echo 'PARTUUID=$PARTUUID3  /mnt/NVMeData    ext4    defaults         0       2' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
