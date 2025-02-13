@@ -92,7 +92,7 @@ su -c "echo '#' >> $tempdir/etc/fstab"
 
 # now let's mount --bind fhem data on NVMeData /etc/fstab
 su -c "echo '# mount --bind /opt/fhem to /mnt/NVMeData/myopt/fhem' >> $tempdir/etc/fstab"
-# su -c "echo '/mnt/NVMeData/myopt/fhem /opt/fhem    none    bind,nofail' >> $tempdir/etc/fstab"
+su -c "echo '/mnt/NVMeData/myopt/fhem /opt/fhem    none    bind,nofail' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
 
 # now let's add the 2TB-HD attached via USB3 to /etc/fstab
