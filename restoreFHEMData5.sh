@@ -37,12 +37,9 @@ echo "most recent backup is named"
 echo $RemotePath/$most_recent
 
 # retrieve a local copy of the most recent FHEM-Backup
-rsync -4auv --owner --numeric-ids --group --super $Remote:$RemotePath/$most_recent .
+rsync -4auv $Remote:$RemotePath/$most_recent .
 
 # untar the FHEMBackup 
-if [ ! -d "$RecoveryPath" ]; then
-   sudo mkdir $RecoveryPath
-fi
 sudo tar -xvzf $most_recent -C ${RecoveryPath}/
 
 # clean-up disk
