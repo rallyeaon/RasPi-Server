@@ -100,6 +100,17 @@ su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
 su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
 
+# Bookworm has changed ssh default settings. See also
+# https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss
+# http://www.openssh.com/legacy.html
+# subsequently we have to add adopt /etc/ssh/ssh_config
+# create a backup of /etc/ssh/ssh_config
+cp -v $tempdir/etc/ssh/ssh_config $tempdir/etc/ssh/ssh_config.ok
+# update /etc/ssh/ssh_config
+su -c "echo 'Host fhem-va.fhem.de' >> $tempdir/etc/ssh/ssh_config"
+su -c "echo '  HostkeyAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
+su -c "echo '  PubkeyAcceptedAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
+
 # now let's create the subdirectories within /mnt for the mount points
 if [ ! -d "$tempdir/mnt/share" ]; then
    mkdir $tempdir/mnt/share
@@ -107,22 +118,6 @@ fi
 
 if [ ! -d "$tempdir/mnt/NVMeData" ]; then
    mkdir $tempdir/mnt/NVMeData
-#   mkdir $tempdir/mnt/NVMeData/compose
-#   mkdir $tempdir/mnt/NVMeData/compose/immich
-#   mkdir $tempdir/mnt/NVMeData/myopt
-#   mkdir $tempdir/mnt/NVMeData/myopt/certbot
-#   mkdir $tempdir/mnt/NVMeData/myopt/fhem
-#   mkdir $tempdir/mnt/NVMeData/myopt/homeassistant
-#   mkdir $tempdir/mnt/NVMeData/myopt/immich
-#   mkdir $tempdir/mnt/NVMeData/myopt/mosquitto
-#   mkdir $tempdir/mnt/NVMeData/myopt/nginx
-#   mkdir $tempdir/mnt/NVMeData/myopt/portainer
-#   mkdir $tempdir/mnt/NVMeData/sepp
-#   chown 1000:1000 -R $tempdir/mnt/NVMeData/compose
-#   chown  999:20   -R $tempdir/mnt/NVMeData/compose/fhem
-#   chown 1883:1883 -R $tempdir/mnt/NVMeData/compose/mosquitto
-#   chown 1000:1000 -R $tempdir/mnt/NVMeData/myopt
-#   chown 1000:1000 -R $tempdir/mnt/NVMeData/sepp
 fi
 
 # SonosSpeak remains on /mnt for historical reasons but is planned to be moved to /mnt/NVMeData
@@ -130,7 +125,7 @@ if [ ! -d "$tempdir/mnt/SonosSpeak" ]; then
    mkdir $tempdir/mnt/SonosSpeak
 fi
 
-# boot-devise no longer needed, therefore unmount it from our system and remove temporary directory
+# access to boot-devise no longer needed here, therefore unmount it from our system and remove temporary directory
 umount /dev/sdb2
 rm -r $tempdir
 
