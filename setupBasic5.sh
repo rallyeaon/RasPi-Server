@@ -20,6 +20,9 @@ fi
 apt update
 apt -y full-upgrade
 
+# install adb-tools used for Amazon FireTV in case FHEM bare-metal installation is used
+apt -y install android-tools-adb
+
 # config the default language, call raspi-config in background to perform this task
 raspi-config nonint do_change_locale de_AT.UTF-8
 
