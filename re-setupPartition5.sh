@@ -101,6 +101,7 @@ su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defa
 su -c "echo '#' >> $tempdir/etc/fstab"
 
 # Bookworm has changed ssh default settings. See also
+# https://forum.fhem.de/index.php?topic=126292.msg1210033#msg1210033
 # https://askubuntu.com/questions/836048/ssh-returns-no-matching-host-key-type-found-their-offer-ssh-dss
 # http://www.openssh.com/legacy.html
 # subsequently we have to add adopt /etc/ssh/ssh_config
@@ -108,8 +109,8 @@ su -c "echo '#' >> $tempdir/etc/fstab"
 cp -v $tempdir/etc/ssh/ssh_config $tempdir/etc/ssh/ssh_config.ok
 # update /etc/ssh/ssh_config
 su -c "echo 'Host fhem-va.fhem.de' >> $tempdir/etc/ssh/ssh_config"
-su -c "echo '  HostkeyAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
-su -c "echo '  PubkeyAcceptedAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
+su -c "echo '  HostkeyAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
+su -c "echo '  PubkeyAcceptedAlgorithms +ssh-rsa' >> $tempdir/etc/ssh/ssh_config"
 
 # now let's create the subdirectories within /mnt for the mount points
 if [ ! -d "$tempdir/mnt/share" ]; then
