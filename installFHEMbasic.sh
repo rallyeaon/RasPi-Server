@@ -34,7 +34,7 @@ node --version
 sudo npm install -g alexa-fhem
 # clean-up
 
-# install moduled for SolarForecast AI support
-sudo apt-get install -y libai-decisiontree-perl
+# install moduled for SolarForecast & AI support
+sudo apt-get install -y libdatetime-perl libdatetime-format-strptime-perl libai-decisiontree-perl
 sudo apt -y autoremove
 exit
