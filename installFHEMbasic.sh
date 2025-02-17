@@ -26,6 +26,9 @@ sudo apt install -y python3 python3-pip python3-dev python3-venv libffi-dev libs
 # install prerequisites for FritzBox-access
 sudo apt install -y libjson-perl libwww-perl libsoap-lite-perl libjson-xs-perl
 
+# install prerequisites for Denon-AVR
+sudo apt -y install libxml-simple-perl
+
 # install prerequisites for alexa-fhem
 sudo apt install -y nodejs npm
 # show version of nodejs
