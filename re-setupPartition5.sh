@@ -95,9 +95,9 @@ su -c "echo '# mount --bind /opt/fhem to /mnt/NVMeData/myopt/fhem' >> $tempdir/e
 su -c "echo '/mnt/NVMeData/myopt/fhem /opt/fhem    none    bind,nofail' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
 
-# now let's add the 2TB-HD attached via USB3 to /etc/fstab
+# now let's add the 2TB-SSD in 2nd slot of Pimoroni-extension to /etc/fstab
 su -c "echo '# mount share-volume' >> $tempdir/etc/fstab"
-su -c "echo 'PARTUUID=ce5a4333-c0e8-4f38-a3b1-5d9c80c4ec79 /mnt/share  ext4 defaults   0   2' >> $tempdir/etc/fstab"
+su -c "echo 'PARTUUID=a5f1fa1b-01  /mnt/share      ext4    defaults          0       2' >> $tempdir/etc/fstab"
 su -c "echo '#' >> $tempdir/etc/fstab"
 
 # Bookworm has changed ssh default settings. See also
